@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Delenio People · Propuesta de Servicios</title>
+<meta name="description" content="Un punto de entrada, dos caminos: People Insight, People Copilot y People Match. Estrategia, Tecnología y Talento unificados para el crecimiento sostenible." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A0E18;
+    --navy-card:#12172400;
+    --card-dark:#11151F;
+    --card-dark-border:#232A38;
+    --ink:#10141F;
+    --gray:#63697A;
+    --gray-dark:#98A0B3;
+    --blue:#2B3FE0;
+    --blue-deep:#1E2FB8;
+    --green:#22B24C;
+    --green-neon:#4BFF7E;
+    --lav-bg:#EEF0FF;
+    --lav-text:#3547D6;
+    --mint-bg:#E7FBF3;
+    --green-bg:#EAFBE7;
+    --border:#E7E9EF;
+    --bg-soft:#F7F8FC;
+    --white:#FFFFFF;
+    --grad: linear-gradient(95deg, var(--blue) 0%, var(--green) 100%);
+    --grad-text: linear-gradient(95deg, var(--blue) 0%, var(--green) 100%);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(16,20,31,0.04), 0 8px 24px -12px rgba(16,20,31,0.12);
+    --shadow-card-hover: 0 4px 10px rgba(16,20,31,0.06), 0 20px 40px -16px rgba(16,20,31,0.18);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Manrope', sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Sora', sans-serif;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+  p{margin:0;}
+  a{text-decoration:none;color:inherit;}
+  ul{margin:0;padding:0;list-style:none;}
+  img,svg{display:block;max-width:100%;}
+  .container{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{position:relative;}
+
+  ::selection{background:var(--green-neon);color:var(--navy);}
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Buttons & badges ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:15.5px;
+    padding:14px 26px;border-radius:var(--radius-pill);
+    border:1px solid transparent;cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+    white-space:nowrap;
+  }
+  .btn-grad{background:var(--grad);color:#fff;box-shadow:0 10px 24px -8px rgba(43,63,224,0.35);}
+  .btn-grad:hover{transform:translateY(-1px);box-shadow:0 14px 30px -8px rgba(43,63,224,0.45);}
+  .btn-outline{background:#fff;color:var(--ink);border-color:#DFE2E9;}
+  .btn-outline:hover{border-color:#B9BECD;}
+  .btn-outline-dark{background:transparent;color:#fff;border-color:#333B4D;}
+  .btn-outline-dark:hover{border-color:#535D75;}
+  .btn svg{width:16px;height:16px;flex-shrink:0;}
+
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13.5px;font-weight:700;
+    padding:8px 18px;border-radius:var(--radius-pill);
+  }
+  .badge-light{background:var(--lav-bg);color:var(--lav-text);}
+  .badge-light .dot{width:7px;height:7px;border-radius:50%;background:var(--lav-text);}
+  .badge-dark{background:#0E2818;color:var(--green-neon);border:1px solid #1B4A2E;}
+
+  .eyebrow-row{display:flex;justify-content:center;margin-bottom:22px;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #EDEFF4;
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .logo{display:flex;align-items:center;gap:8px;font-family:'Sora',sans-serif;font-weight:700;font-size:21px;color:var(--ink);}
+  .logo .mark{width:118px;height:auto;}
+  .logo sup{font-size:9px;color:var(--gray);font-weight:600;margin-left:1px;}
+  .people-tag{
+    font-family:'Manrope',sans-serif;font-size:12.5px;font-weight:700;
+    color:var(--gray);padding:3px 9px;border:1px solid var(--border);
+    border-radius:999px;letter-spacing:.02em;white-space:nowrap;
+  }
+  .people-tag-dark{color:#9AA1B5;border-color:#2A3143;}
+  nav.links{display:flex;align-items:center;gap:34px;}
+  nav.links a{font-size:15px;font-weight:600;color:#3A4050;transition:color .15s;}
+  nav.links a:hover{color:var(--blue);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;}
+
+  @media (max-width:920px){
+    nav.links{display:none;}
+    .nav-toggle{display:block;}
+    .nav-cta .btn-outline{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;padding:88px 0 100px;
+    background:
+      radial-gradient(720px 420px at 78% 8%, rgba(43,63,224,0.10), transparent 60%),
+      radial-gradient(640px 480px at 92% 55%, rgba(34,178,76,0.10), transparent 60%),
+      linear-gradient(180deg,#FCFCFF 0%, #F8F9FE 100%);
+    overflow:hidden;
+  }
+  .hero-net{position:absolute;inset:0;opacity:.55;pointer-events:none;}
+  .hero-grid{
+    position:relative;z-index:1;
+    display:flex;gap:40px;align-items:center;
+  }
+  .hero-grid > *:first-child{flex:1.1 1 0;min-width:0;}
+  .hero h1{font-size:56px;line-height:1.06;font-weight:800;color:var(--ink);}
+  .hero h1 .blue{color:var(--blue);}
+  .hero h1 .green{
+    background:linear-gradient(95deg,#1EA84B,#33C55E);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .sub{font-size:19px;color:#4B5164;margin-top:22px;font-weight:600;}
+  .hero .body{font-size:16px;line-height:1.7;color:var(--gray);margin-top:18px;max-width:560px;}
+  .hero .body + .body{margin-top:12px;}
+  .hero .ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .hero-visual{position:relative;height:420px;flex:0.9 1 0;min-width:0;}
+  .silhouettes{position:absolute;bottom:-10px;right:-10px;opacity:.85;}
+
+  @media (max-width:920px){
+    .hero{padding:56px 0 64px;}
+    .hero-grid{flex-direction:column;}
+    .hero h1{font-size:38px;}
+    .hero-visual{height:220px;order:-1;}
+  }
+
+  /* ---------- Dark philosophy section ---------- */
+  .philosophy{
+    background:var(--navy);
+    padding:120px 0 110px;
+    color:#fff;
+    position:relative;
+  }
+  .philosophy::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(560px 320px at 15% 10%, rgba(75,255,126,0.07), transparent 60%);
+    pointer-events:none;
+  }
+  .section-head{max-width:760px;margin:0 auto 56px;text-align:center;}
+  .section-head h2{font-size:38px;font-weight:800;line-height:1.2;}
+  .section-head h2 .accent{
+    background:linear-gradient(95deg,var(--green-neon),#8CFFB0);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .section-head h2 .accent-light{color:var(--blue);}
+  .section-head .lead{color:var(--gray-dark);font-size:16.5px;margin-top:14px;}
+  .philosophy .lead2{
+    max-width:680px;margin:20px auto 0;text-align:center;
+    color:#B7BECF;font-size:15.5px;line-height:1.75;
+  }
+
+  .dim-grid{
+    display:flex;flex-wrap:wrap;gap:20px;
+    margin-top:56px;position:relative;
+  }
+  .dim-card{
+    background:var(--card-dark);border:1px solid var(--card-dark-border);
+    border-radius:20px;padding:28px 24px;position:relative;
+    transition:border-color .2s ease, transform .2s ease;
+    flex:1 1 calc(25% - 15px);min-width:220px;
+  }
+  .dim-card:hover{border-color:#37506B;transform:translateY(-3px);}
+  .dim-num{
+    position:absolute;top:-14px;right:20px;
+    width:34px;height:34px;border-radius:50%;
+    background:linear-gradient(135deg,var(--blue),var(--green));
+    color:#fff;font-size:13px;font-weight:800;font-family:'Sora',sans-serif;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .dim-icon{
+    width:46px;height:46px;border-radius:12px;
+    background:#0E2818;border:1px solid #1B4A2E;
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  }
+  .dim-icon svg{width:22px;height:22px;stroke:var(--green-neon);}
+  .dim-card h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;}
+  .dim-card p{font-size:14.5px;color:#95A0B8;line-height:1.6;}
+  .dim-arrow{
+    position:absolute;top:50%;right:-20px;transform:translateY(-50%);
+    color:#37506B;z-index:2;
+  }
+  @media (max-width:1040px){
+    .dim-card{flex:1 1 calc(50% - 10px);}
+    .dim-arrow{display:none;}
+  }
+  @media (max-width:600px){
+    .dim-card{flex:1 1 100%;}
+  }
+
+  .philosophy-cta{display:flex;justify-content:center;margin-top:52px;}
+  .pill-glow{
+    display:inline-flex;align-items:center;gap:10px;
+    background:#0E2818;border:1px solid #235A38;color:var(--green-neon);
+    padding:14px 28px;border-radius:999px;font-weight:700;font-size:15px;
+    box-shadow:0 0 40px -10px rgba(75,255,126,0.35);
+  }
+  .pill-glow svg{width:16px;height:16px;}
+
+  /* ---------- Camino / funnel section ---------- */
+  .camino{padding:120px 0 100px;background:#fff;}
+  .funnel-wrap{margin:64px auto 84px;max-width:920px;}
+  .funnel-svg{width:100%;height:auto;}
+  .funnel-path{
+    stroke-dasharray:400;stroke-dashoffset:400;
+    transition:stroke-dashoffset 1.4s ease;
+  }
+  .funnel-wrap.in-view .funnel-path{stroke-dashoffset:0;}
+  .funnel-node-label{font-family:'Sora',sans-serif;font-weight:700;}
+  .funnel-node-sub{font-family:'Manrope',sans-serif;font-weight:600;}
+
+  .step-label{
+    display:flex;align-items:center;gap:14px;margin:0 0 28px;
+  }
+  .step-num{
+    width:32px;height:32px;border-radius:50%;
+    background:linear-gradient(135deg,var(--blue),var(--green));
+    color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:13px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .step-label h3{font-size:22px;font-weight:800;color:var(--ink);}
+  .step-label span.tag{font-size:14px;color:var(--gray);font-weight:600;margin-left:4px;}
+
+  .row-2{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:64px;}
+  .row-2 > *{flex:1 1 calc(50% - 11px);min-width:280px;}
+  @media (max-width:840px){.row-2 > *{flex:1 1 100%;}}
+
+  .path-card{
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:30px 28px;box-shadow:var(--shadow-card);
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .path-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-2px);}
+  .path-icon{
+    width:48px;height:48px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .path-icon.lav{background:var(--lav-bg);}
+  .path-icon.mint{background:var(--mint-bg);}
+  .path-icon svg{width:22px;height:22px;}
+  .path-icon.lav svg{stroke:var(--blue);}
+  .path-icon.mint svg{stroke:var(--green);}
+  .path-card h4{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .path-card .sub{font-size:13.5px;font-weight:700;margin-bottom:10px;}
+  .path-card .sub.blue{color:var(--blue);}
+  .path-card .sub.green{color:var(--green);}
+  .path-card p.desc{font-size:14.5px;color:var(--gray);line-height:1.65;}
+  .path-card .meta{
+    display:flex;justify-content:space-between;margin-top:18px;padding-top:16px;
+    border-top:1px solid var(--border);font-size:13px;color:var(--gray);
+  }
+  .path-card .meta b{color:var(--ink);}
+
+  .flagship{
+    background:var(--grad);border-radius:var(--radius-lg);padding:38px 36px;color:#fff;
+    box-shadow:0 20px 50px -20px rgba(43,63,224,0.4);
+    position:relative;overflow:hidden;
+  }
+  .flagship::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(320px 200px at 90% 10%, rgba(255,255,255,0.18), transparent 60%);
+  }
+  .flagship-icon{
+    width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.16);
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative;
+  }
+  .flagship-icon svg{width:24px;height:24px;stroke:#fff;}
+  .flagship h4{font-size:25px;font-weight:800;margin-bottom:4px;position:relative;}
+  .flagship .sub{font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:14px;position:relative;}
+  .flagship p.desc{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.92);position:relative;max-width:620px;}
+  .modal-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;position:relative;}
+  .modal-chip{
+    background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);
+    padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;
+  }
+
+  /* ---------- Tu Rol section ---------- */
+  .rol{background:var(--bg-soft);padding:110px 0;}
+  .rol-note{
+    max-width:680px;margin:0 auto 50px;text-align:center;
+    color:var(--gray);font-size:15.5px;line-height:1.7;
+  }
+  .rol-table{
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+    overflow:hidden;box-shadow:var(--shadow-card);
+  }
+  .rol-row{
+    display:flex;
+    border-bottom:1px solid var(--border);
+  }
+  .rol-row > div:nth-child(1){flex:1 1 0;}
+  .rol-row > div:nth-child(2){flex:1.4 1 0;}
+  .rol-row > div:nth-child(3){flex:1.4 1 0;}
+  .rol-row:last-child{border-bottom:none;}
+  .rol-row.head{background:var(--navy);color:#fff;}
+  .rol-row.head div{font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.04em;}
+  .rol-row div{padding:20px 24px;font-size:14.5px;line-height:1.6;}
+  .rol-row:not(.head) div:first-child{font-weight:700;color:var(--ink);background:#FBFBFE;}
+  .rol-row:not(.head) div:nth-child(2){color:var(--gray);border-right:1px solid var(--border);}
+  .rol-row:not(.head) div:nth-child(3){color:var(--ink);font-weight:500;}
+  @media (max-width:760px){
+    .rol-row{flex-direction:column;}
+    .rol-row div{padding:12px 20px;}
+    .rol-row:not(.head) div:first-child{padding-bottom:4px;}
+    .rol-row:not(.head) div:nth-child(2){border-right:none;padding-top:4px;padding-bottom:4px;}
+    .rol-row.head div:nth-child(2),.rol-row.head div:nth-child(3){display:none;}
+    .rol-row:not(.head) div:nth-child(2)::before{content:"Vos nos das — ";font-weight:700;color:var(--ink);}
+    .rol-row:not(.head) div:nth-child(3)::before{content:"Nosotros hacemos — ";font-weight:700;color:var(--ink);}
+  }
+
+  /* ---------- Por qué ---------- */
+  .why{padding:110px 0;background:#fff;}
+  .why-grid{display:flex;flex-wrap:wrap;gap:20px;margin-top:56px;}
+  .why-grid > *{flex:1 1 calc(50% - 10px);min-width:280px;}
+  @media (max-width:760px){.why-grid > *{flex:1 1 100%;}}
+  .why-card{
+    display:flex;gap:18px;padding:26px;border:1px solid var(--border);border-radius:18px;
+  }
+  .why-icon{
+    width:44px;height:44px;border-radius:12px;background:var(--green-bg);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .why-icon svg{width:20px;height:20px;stroke:var(--green);}
+  .why-card h4{font-size:16.5px;font-weight:700;margin-bottom:6px;}
+  .why-card p{font-size:14.5px;color:var(--gray);line-height:1.6;}
+
+  /* ---------- Quote ---------- */
+  .quote-wrap{padding:0 0 110px;background:#fff;}
+  .quote-box{
+    max-width:760px;margin:0 auto;border:1.5px dashed #C9CDF5;background:var(--lav-bg);
+    border-radius:var(--radius-lg);padding:40px 36px;text-align:center;
+  }
+  .quote-box p{font-size:21px;font-weight:700;font-family:'Sora',sans-serif;color:var(--ink);font-style:italic;}
+
+  /* ---------- CTA final ---------- */
+  .cta-final{
+    background:var(--navy);padding:100px 0;color:#fff;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta-final::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(600px 340px at 50% 0%, rgba(43,63,224,0.18), transparent 60%);
+  }
+  .cta-final h2{font-size:34px;font-weight:800;position:relative;}
+  .cta-final p{max-width:600px;margin:18px auto 0;color:#A9B0C4;font-size:16px;line-height:1.7;position:relative;}
+  .cta-final .ctas{display:flex;justify-content:center;gap:14px;margin-top:34px;flex-wrap:wrap;position:relative;}
+
+  /* ---------- Footer ---------- */
+  footer{background:#070A11;color:#fff;padding:72px 0 0;}
+  .footer-grid{
+    display:flex;flex-wrap:wrap;gap:40px;padding-bottom:56px;
+  }
+  .footer-grid > *:nth-child(1){flex:1.4 1 260px;}
+  .footer-grid > *:nth-child(2){flex:1 1 160px;}
+  .footer-grid > *:nth-child(3){flex:1 1 160px;}
+  @media (max-width:760px){.footer-grid{gap:36px;}.footer-grid > *{flex:1 1 100%;}}
+  .footer-logo{display:flex;align-items:center;gap:8px;font-family:'Sora',sans-serif;font-weight:700;font-size:22px;margin-bottom:16px;}
+  footer .tagline{color:#8B93A7;font-size:14.5px;line-height:1.7;max-width:320px;}
+  footer h5{font-size:15px;font-weight:700;margin-bottom:18px;color:#fff;}
+  footer ul li{margin-bottom:13px;}
+  footer ul li a{color:#9AA1B5;font-size:14.5px;transition:color .15s;}
+  footer ul li a:hover{color:var(--green-neon);}
+  .footer-contact li{display:flex;align-items:center;gap:10px;color:#9AA1B5;font-size:14.5px;margin-bottom:16px;}
+  .footer-contact svg{width:16px;height:16px;stroke:#7B8299;flex-shrink:0;}
+  .footer-bottom{
+    border-top:1px solid #1B2130;padding:22px 0;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    color:#6B7286;font-size:13px;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  /* Mobile nav drawer */
+  .mobile-drawer{
+    position:fixed;inset:0;background:#fff;z-index:100;
+    display:flex;flex-direction:column;padding:24px 28px;
+    transform:translateX(100%);transition:transform .25s ease;
+  }
+  .mobile-drawer.open{transform:translateX(0);}
+  .mobile-drawer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;}
+  .mobile-drawer a{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;padding:16px 0;border-bottom:1px solid #EEE;}
+  .mobile-drawer .close{background:none;border:none;font-size:28px;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="Delenio People">
+      <svg class="mark mark-dark" viewBox="0 0 579 176" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.4828 165.528V69.7309C10.4828 67.473 11.343 65.484 13.0632 63.7637C14.7835 62.0434 16.8263 61.1833 19.1917 61.1833H50.3176C66.015 60.9683 79.132 66.2903 89.6686 77.1495C100.313 87.9011 105.527 101.394 105.312 117.629C105.527 133.864 100.313 147.411 89.6686 158.271C79.132 169.022 66.015 174.29 50.3176 174.075H19.1917C16.8263 174.075 14.7835 173.215 13.0632 171.495C11.343 169.775 10.4828 167.786 10.4828 165.528ZM27.5779 77.9558V157.303H48.5436C60.3704 157.303 69.9394 153.647 77.2505 146.336C84.5616 138.81 88.2171 129.241 88.2171 117.629C88.2171 105.91 84.5616 96.3949 77.2505 89.0838C70.0469 81.6652 60.4779 77.9558 48.5436 77.9558H27.5779ZM114.642 133.273C114.642 124.134 116.9 116.017 121.416 108.921C126.039 101.824 132.167 96.7712 139.801 93.7607C144.962 91.6104 150.338 90.5353 155.928 90.5353H156.412C164.046 90.6428 170.766 92.4168 176.572 95.8573C182.377 99.2978 186.947 103.867 190.28 109.566C192.43 113.114 193.882 116.877 194.634 120.855C195.172 123.543 195.441 125.854 195.441 127.79C195.441 128.972 195.333 130.639 195.118 132.789C194.258 137.842 191.409 140.369 186.571 140.369H131.737C133.135 146.282 136.199 151.013 140.93 154.561C145.661 158.002 151.52 159.722 158.509 159.722C165.82 159.722 172.271 157.464 177.862 152.948C179.475 151.658 181.302 150.906 183.345 150.691H183.829C185.549 150.691 187.001 151.121 188.183 151.981C190.226 153.809 191.409 155.851 191.731 158.109C192.054 160.26 190.979 162.625 188.506 165.205C180.55 172.194 170.497 175.688 158.348 175.688C145.123 175.688 134.533 171.71 126.577 163.754C118.62 155.583 114.642 145.422 114.642 133.273ZM131.737 125.693H178.668C178.131 119.887 175.819 115.264 171.733 111.823C167.755 108.275 162.648 106.501 156.412 106.501C150.284 106.501 144.962 108.275 140.446 111.823C136.038 115.264 133.135 119.887 131.737 125.693ZM211.918 166.496V60.6995C211.918 58.3341 212.725 56.3451 214.338 54.7323C216.058 53.0121 218.101 52.1519 220.466 52.1519C222.831 52.1519 224.82 53.0121 226.433 54.7323C228.153 56.3451 229.014 58.3341 229.014 60.6995V166.496C229.014 168.861 228.153 170.904 226.433 172.624C224.82 174.237 222.831 175.043 220.466 175.043C218.101 175.043 216.058 174.237 214.338 172.624C212.725 170.904 211.918 168.861 211.918 166.496ZM245.835 133.273C245.835 124.134 248.093 116.017 252.609 108.921C257.232 101.824 263.36 96.7712 270.994 93.7607C276.155 91.6104 281.531 90.5353 287.121 90.5353H287.605C295.239 90.6428 301.959 92.4168 307.765 95.8573C313.57 99.2978 318.14 103.867 321.473 109.566C323.623 113.114 325.075 116.877 325.827 120.855C326.365 123.543 326.634 125.854 326.634 127.79C326.634 128.972 326.526 130.639 326.311 132.789C325.451 137.842 322.602 140.369 317.764 140.369H262.93C264.328 146.282 267.392 151.013 272.123 154.561C276.854 158.002 282.713 159.722 289.702 159.722C297.013 159.722 303.464 157.464 309.055 152.948C310.668 151.658 312.495 150.906 314.538 150.691H315.022C316.742 150.691 318.194 151.121 319.376 151.981C321.419 153.809 322.602 155.851 322.924 158.109C323.247 160.26 322.172 162.625 319.699 165.205C311.743 172.194 301.69 175.688 289.541 175.688C276.316 175.688 265.726 171.71 257.77 163.754C249.813 155.583 245.835 145.422 245.835 133.273ZM262.93 125.693H309.861C309.324 119.887 307.012 115.264 302.926 111.823C298.948 108.275 293.841 106.501 287.605 106.501C281.477 106.501 276.155 108.275 271.639 111.823C267.231 115.264 264.328 119.887 262.93 125.693ZM340.269 166.496V99.7279C340.269 97.3625 341.075 95.3735 342.688 93.7607C344.301 92.0405 346.29 91.1804 348.655 91.1804C351.128 91.1804 353.171 92.0405 354.784 93.7607C356.504 95.3735 357.364 97.3625 357.364 99.7279V102.308C362.955 94.4596 371.395 90.5353 382.684 90.5353C391.931 90.5353 399.242 93.7607 404.618 100.212C410.101 106.555 412.843 115.156 412.843 126.016V166.334C412.843 168.915 412.036 171.011 410.423 172.624C408.811 174.237 406.768 175.043 404.295 175.043C401.822 175.043 399.779 174.237 398.167 172.624C396.554 171.011 395.747 168.915 395.747 166.334V127.628C395.747 121.392 394.296 116.554 391.393 113.114C388.598 109.566 384.566 107.792 379.297 107.792C364.675 107.792 357.364 117.361 357.364 136.498V166.496C357.364 168.968 356.504 171.011 354.784 172.624C353.171 174.237 351.128 175.043 348.655 175.043C346.29 175.043 344.301 174.237 342.688 172.624C341.075 171.011 340.269 168.968 340.269 166.496ZM430.435 72.4725C428.177 70.1072 427.049 67.2042 427.049 63.7637C427.049 60.2157 428.177 57.3127 430.435 55.0549C432.801 52.6895 435.757 51.5068 439.305 51.5068C442.853 51.5068 445.81 52.6895 448.175 55.0549C450.541 57.3127 451.724 60.2157 451.724 63.7637C451.724 67.2042 450.541 70.1072 448.175 72.4725C445.81 74.7304 442.853 75.8593 439.305 75.8593C435.757 75.8593 432.801 74.7304 430.435 72.4725ZM430.758 166.496V99.8892C430.758 97.5238 431.564 95.481 433.177 93.7607C434.897 92.0405 436.94 91.1804 439.305 91.1804C441.671 91.1804 443.66 92.0405 445.273 93.7607C446.993 95.481 447.853 97.5238 447.853 99.8892V166.496C447.853 168.861 446.993 170.904 445.273 172.624C443.66 174.237 441.671 175.043 439.305 175.043C436.94 175.043 434.897 174.237 433.177 172.624C431.564 170.904 430.758 168.861 430.758 166.496ZM468.031 154.884C464.376 148.325 462.548 141.068 462.548 133.112C462.548 125.156 464.376 117.952 468.031 111.501C471.794 104.942 476.955 99.8354 483.513 96.1799C490.179 92.4168 497.598 90.5353 505.769 90.5353C513.833 90.5353 521.198 92.4168 527.864 96.1799C534.53 99.8354 539.745 104.942 543.508 111.501C547.271 118.059 549.152 125.263 549.152 133.112C549.152 141.068 547.271 148.325 543.508 154.884C539.745 161.335 534.53 166.442 527.864 170.205C521.305 173.86 513.941 175.688 505.769 175.688C497.706 175.688 490.341 173.86 483.675 170.205C477.116 166.442 471.902 161.335 468.031 154.884ZM487.223 114.888C482.277 119.726 479.804 125.801 479.804 133.112C479.804 140.423 482.277 146.551 487.223 151.497C492.276 156.335 498.458 158.754 505.769 158.754C513.08 158.754 519.263 156.335 524.316 151.497C529.369 146.444 531.896 140.315 531.896 133.112C531.896 125.801 529.369 119.726 524.316 114.888C519.37 109.942 513.188 107.469 505.769 107.469C498.351 107.469 492.169 109.942 487.223 114.888Z" fill="#10141F"/>
+        <path d="M320.637 33.0159L288.621 8.85714L257.066 32.5554" stroke="url(#navlogo1)" stroke-width="17.4877" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M320.637 70.0159L288.621 45.8571L257.066 69.5554" stroke="url(#navlogo2)" stroke-width="17.4877" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M562.898 108.062V95.3435H567.195C568.189 95.3435 569.004 95.5132 569.642 95.8527C570.279 96.188 570.751 96.6497 571.058 97.2375C571.364 97.8254 571.517 98.4941 571.517 99.2434C571.517 99.9928 571.364 100.657 571.058 101.237C570.751 101.816 570.281 102.272 569.648 102.603C569.014 102.93 568.205 103.094 567.22 103.094H563.742V101.703H567.17C567.849 101.703 568.396 101.603 568.81 101.405C569.228 101.206 569.53 100.924 569.716 100.56C569.907 100.191 570.002 99.7526 570.002 99.2434C570.002 98.7342 569.907 98.2891 569.716 97.9082C569.526 97.5273 569.221 97.2334 568.803 97.0264C568.385 96.8153 567.832 96.7097 567.145 96.7097H564.438V108.062H562.898ZM568.884 102.348L572.014 108.062H570.225L567.145 102.348H568.884ZM574.953 108.161C574.647 108.161 574.384 108.051 574.164 107.832C573.945 107.613 573.835 107.35 573.835 107.043C573.835 106.737 573.945 106.474 574.164 106.255C574.384 106.035 574.647 105.925 574.953 105.925C575.259 105.925 575.522 106.035 575.742 106.255C575.961 106.474 576.071 106.737 576.071 107.043C576.071 107.246 576.019 107.432 575.915 107.602C575.816 107.772 575.682 107.909 575.512 108.012C575.346 108.111 575.16 108.161 574.953 108.161Z" fill="#10141F"/>
+        <defs>
+          <linearGradient id="navlogo1" x1="308" y1="33" x2="262" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#002EE5"/><stop offset="1" stop-color="#65E3C3"/></linearGradient>
+          <linearGradient id="navlogo2" x1="308" y1="70" x2="262" y2="75" gradientUnits="userSpaceOnUse"><stop stop-color="#002EE5"/><stop offset="1" stop-color="#65E3C3"/></linearGradient>
+        </defs>
+      </svg>
+      <span class="people-tag">People</span>
+    </a>
+    <nav class="links">
+      <a href="#filosofia">Filosofía</a>
+      <a href="#camino">Cómo Funciona</a>
+      <a href="#copilot">Copilot</a>
+      <a href="#match">Match</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+      <a href="https://calendar.app.google/bmg5q2Ne7GtyuU1D7" target="_blank" rel="noopener" class="btn btn-grad">Agendá tu diagnóstico</a>
+      <button class="nav-toggle" aria-label="Abrir menú" onclick="document.getElementById('drawer').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="drawer">
+  <div class="top">
+    <a href="#" class="logo">
+      <svg class="mark" viewBox="0 0 579 176" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100px;">
+        <path d="M10.4828 165.528V69.7309C10.4828 67.473 11.343 65.484 13.0632 63.7637C14.7835 62.0434 16.8263 61.1833 19.1917 61.1833H50.3176C66.015 60.9683 79.132 66.2903 89.6686 77.1495C100.313 87.9011 105.527 101.394 105.312 117.629C105.527 133.864 100.313 147.411 89.6686 158.271C79.132 169.022 66.015 174.29 50.3176 174.075H19.1917C16.8263 174.075 14.7835 173.215 13.0632 171.495C11.343 169.775 10.4828 167.786 10.4828 165.528ZM27.5779 77.9558V157.303H48.5436C60.3704 157.303 69.9394 153.647 77.2505 146.336C84.5616 138.81 88.2171 129.241 88.2171 117.629C88.2171 105.91 84.5616 96.3949 77.2505 89.0838C70.0469 81.6652 60.4779 77.9558 48.5436 77.9558H27.5779ZM114.642 133.273C114.642 124.134 116.9 116.017 121.416 108.921C126.039 101.824 132.167 96.7712 139.801 93.7607C144.962 91.6104 150.338 90.5353 155.928 90.5353H156.412C164.046 90.6428 170.766 92.4168 176.572 95.8573C182.377 99.2978 186.947 103.867 190.28 109.566C192.43 113.114 193.882 116.877 194.634 120.855C195.172 123.543 195.441 125.854 195.441 127.79C195.441 128.972 195.333 130.639 195.118 132.789C194.258 137.842 191.409 140.369 186.571 140.369H131.737C133.135 146.282 136.199 151.013 140.93 154.561C145.661 158.002 151.52 159.722 158.509 159.722C165.82 159.722 172.271 157.464 177.862 152.948C179.475 151.658 181.302 150.906 183.345 150.691H183.829C185.549 150.691 187.001 151.121 188.183 151.981C190.226 153.809 191.409 155.851 191.731 158.109C192.054 160.26 190.979 162.625 188.506 165.205C180.55 172.194 170.497 175.688 158.348 175.688C145.123 175.688 134.533 171.71 126.577 163.754C118.62 155.583 114.642 145.422 114.642 133.273ZM131.737 125.693H178.668C178.131 119.887 175.819 115.264 171.733 111.823C167.755 108.275 162.648 106.501 156.412 106.501C150.284 106.501 144.962 108.275 140.446 111.823C136.038 115.264 133.135 119.887 131.737 125.693ZM211.918 166.496V60.6995C211.918 58.3341 212.725 56.3451 214.338 54.7323C216.058 53.0121 218.101 52.1519 220.466 52.1519C222.831 52.1519 224.82 53.0121 226.433 54.7323C228.153 56.3451 229.014 58.3341 229.014 60.6995V166.496C229.014 168.861 228.153 170.904 226.433 172.624C224.82 174.237 222.831 175.043 220.466 175.043C218.101 175.043 216.058 174.237 214.338 172.624C212.725 170.904 211.918 168.861 211.918 166.496ZM245.835 133.273C245.835 124.134 248.093 116.017 252.609 108.921C257.232 101.824 263.36 96.7712 270.994 93.7607C276.155 91.6104 281.531 90.5353 287.121 90.5353H287.605C295.239 90.6428 301.959 92.4168 307.765 95.8573C313.57 99.2978 318.14 103.867 321.473 109.566C323.623 113.114 325.075 116.877 325.827 120.855C326.365 123.543 326.634 125.854 326.634 127.79C326.634 128.972 326.526 130.639 326.311 132.789C325.451 137.842 322.602 140.369 317.764 140.369H262.93C264.328 146.282 267.392 151.013 272.123 154.561C276.854 158.002 282.713 159.722 289.702 159.722C297.013 159.722 303.464 157.464 309.055 152.948C310.668 151.658 312.495 150.906 314.538 150.691H315.022C316.742 150.691 318.194 151.121 319.376 151.981C321.419 153.809 322.602 155.851 322.924 158.109C323.247 160.26 322.172 162.625 319.699 165.205C311.743 172.194 301.69 175.688 289.541 175.688C276.316 175.688 265.726 171.71 257.77 163.754C249.813 155.583 245.835 145.422 245.835 133.273ZM262.93 125.693H309.861C309.324 119.887 307.012 115.264 302.926 111.823C298.948 108.275 293.841 106.501 287.605 106.501C281.477 106.501 276.155 108.275 271.639 111.823C267.231 115.264 264.328 119.887 262.93 125.693ZM340.269 166.496V99.7279C340.269 97.3625 341.075 95.3735 342.688 93.7607C344.301 92.0405 346.29 91.1804 348.655 91.1804C351.128 91.1804 353.171 92.0405 354.784 93.7607C356.504 95.3735 357.364 97.3625 357.364 99.7279V102.308C362.955 94.4596 371.395 90.5353 382.684 90.5353C391.931 90.5353 399.242 93.7607 404.618 100.212C410.101 106.555 412.843 115.156 412.843 126.016V166.334C412.843 168.915 412.036 171.011 410.423 172.624C408.811 174.237 406.768 175.043 404.295 175.043C401.822 175.043 399.779 174.237 398.167 172.624C396.554 171.011 395.747 168.915 395.747 166.334V127.628C395.747 121.392 394.296 116.554 391.393 113.114C388.598 109.566 384.566 107.792 379.297 107.792C364.675 107.792 357.364 117.361 357.364 136.498V166.496C357.364 168.968 356.504 171.011 354.784 172.624C353.171 174.237 351.128 175.043 348.655 175.043C346.29 175.043 344.301 174.237 342.688 172.624C341.075 171.011 340.269 168.968 340.269 166.496ZM430.435 72.4725C428.177 70.1072 427.049 67.2042 427.049 63.7637C427.049 60.2157 428.177 57.3127 430.435 55.0549C432.801 52.6895 435.757 51.5068 439.305 51.5068C442.853 51.5068 445.81 52.6895 448.175 55.0549C450.541 57.3127 451.724 60.2157 451.724 63.7637C451.724 67.2042 450.541 70.1072 448.175 72.4725C445.81 74.7304 442.853 75.8593 439.305 75.8593C435.757 75.8593 432.801 74.7304 430.435 72.4725ZM430.758 166.496V99.8892C430.758 97.5238 431.564 95.481 433.177 93.7607C434.897 92.0405 436.94 91.1804 439.305 91.1804C441.671 91.1804 443.66 92.0405 445.273 93.7607C446.993 95.481 447.853 97.5238 447.853 99.8892V166.496C447.853 168.861 446.993 170.904 445.273 172.624C443.66 174.237 441.671 175.043 439.305 175.043C436.94 175.043 434.897 174.237 433.177 172.624C431.564 170.904 430.758 168.861 430.758 166.496ZM468.031 154.884C464.376 148.325 462.548 141.068 462.548 133.112C462.548 125.156 464.376 117.952 468.031 111.501C471.794 104.942 476.955 99.8354 483.513 96.1799C490.179 92.4168 497.598 90.5353 505.769 90.5353C513.833 90.5353 521.198 92.4168 527.864 96.1799C534.53 99.8354 539.745 104.942 543.508 111.501C547.271 118.059 549.152 125.263 549.152 133.112C549.152 141.068 547.271 148.325 543.508 154.884C539.745 161.335 534.53 166.442 527.864 170.205C521.305 173.86 513.941 175.688 505.769 175.688C497.706 175.688 490.341 173.86 483.675 170.205C477.116 166.442 471.902 161.335 468.031 154.884ZM487.223 114.888C482.277 119.726 479.804 125.801 479.804 133.112C479.804 140.423 482.277 146.551 487.223 151.497C492.276 156.335 498.458 158.754 505.769 158.754C513.08 158.754 519.263 156.335 524.316 151.497C529.369 146.444 531.896 140.315 531.896 133.112C531.896 125.801 529.369 119.726 524.316 114.888C519.37 109.942 513.188 107.469 505.769 107.469C498.351 107.469 492.169 109.942 487.223 114.888Z" fill="#10141F"/>
+        <path d="M320.637 33.0159L288.621 8.85714L257.066 32.5554" stroke="url(#drawerlogo1)" stroke-width="17.4877" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M320.637 70.0159L288.621 45.8571L257.066 69.5554" stroke="url(#drawerlogo2)" stroke-width="17.4877" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="drawerlogo1" x1="308" y1="33" x2="262" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#002EE5"/><stop offset="1" stop-color="#65E3C3"/></linearGradient>
+          <linearGradient id="drawerlogo2" x1="308" y1="70" x2="262" y2="75" gradientUnits="userSpaceOnUse"><stop stop-color="#002EE5"/><stop offset="1" stop-color="#65E3C3"/></linearGradient>
+        </defs>
+      </svg>
+      <span class="people-tag">People</span>
+    </a>
+    <button class="close" aria-label="Cerrar menú" onclick="document.getElementById('drawer').classList.remove('open')">×</button>
+  </div>
+  <a href="#filosofia" onclick="closeDrawer()">Filosofía</a>
+  <a href="#camino" onclick="closeDrawer()">Cómo Funciona</a>
+  <a href="#copilot" onclick="closeDrawer()">Copilot</a>
+  <a href="#match" onclick="closeDrawer()">Match</a>
+  <a href="#contacto" onclick="closeDrawer()">Contacto</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <svg class="hero-net" viewBox="0 0 1180 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="#2B3FE0" stroke-opacity="0.14" stroke-width="1">
+      <line x1="620" y1="60" x2="760" y2="140"/>
+      <line x1="760" y1="140" x2="900" y2="90"/>
+      <line x1="760" y1="140" x2="820" y2="260"/>
+      <line x1="900" y1="90" x2="1040" y2="170"/>
+      <line x1="820" y1="260" x2="960" y2="320"/>
+      <line x1="960" y1="320" x2="1100" y2="260"/>
+      <line x1="820" y1="260" x2="700" y2="340"/>
+      <line x1="700" y1="340" x2="780" y2="450"/>
+    </g>
+    <g fill="#2B3FE0" fill-opacity="0.35">
+      <circle cx="620" cy="60" r="4"/><circle cx="760" cy="140" r="5"/><circle cx="900" cy="90" r="4"/>
+      <circle cx="1040" cy="170" r="4"/><circle cx="820" cy="260" r="5"/><circle cx="960" cy="320" r="4"/>
+      <circle cx="1100" cy="260" r="4"/><circle cx="700" cy="340" r="4"/><circle cx="780" cy="450" r="4"/>
+    </g>
+  </svg>
+
+  <div class="container hero-grid">
+    <div class="reveal in-view">
+      <span class="badge badge-light"><span class="dot"></span> Delenio People</span>
+      <h1 style="margin-top:22px;">Escalando organizaciones <span class="blue">a</span> través de tu <span class="green">gente</span></h1>
+      <p class="sub">Estrategia, Tecnología y Talento unificados para el crecimiento sostenible.</p>
+      <p class="body">En un entorno empresarial dinámico, el talento no es solo un recurso: es el motor de la escalabilidad. En Delenio People, transformamos la gestión de personas en una ventaja competitiva.</p>
+      <p class="body">No cubrimos vacantes ni instalamos software: diseñamos ecosistemas de talento, ayudando a líderes a madurar, estructurarse y acelerar sus resultados.</p>
+      <div class="ctas">
+        <a href="#camino" class="btn btn-grad">Conocé el camino <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#contacto" class="btn btn-outline">Agendá una consulta</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal in-view" aria-hidden="true">
+      <svg class="silhouettes" width="100%" height="100%" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#2B3FE0" fill-opacity="0.08">
+          <circle cx="330" cy="150" r="26"/><rect x="300" y="180" width="60" height="110" rx="24"/>
+        </g>
+        <g fill="#22B24C" fill-opacity="0.10">
+          <circle cx="220" cy="190" r="30"/><rect x="184" y="224" width="72" height="130" rx="28"/>
+        </g>
+        <g fill="#2B3FE0" fill-opacity="0.07">
+          <circle cx="120" cy="220" r="22"/><rect x="96" y="244" width="48" height="96" rx="20"/>
+        </g>
+        <g fill="#22B24C" fill-opacity="0.07">
+          <circle cx="380" cy="260" r="20"/><rect x="358" y="282" width="44" height="88" rx="18"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILOSOFÍA (dark) ============ -->
+<section class="philosophy" id="filosofia">
+  <div class="container">
+    <div class="eyebrow-row"><span class="badge badge-dark">Nuestra Filosofía</span></div>
+    <div class="section-head">
+      <h2 class="reveal">Un enfoque integral: <span class="accent">de la estructura a la aceleración</span></h2>
+      <p class="lead reveal">Nuestra metodología para transformar tu área de personas.</p>
+    </div>
+    <p class="lead2 reveal">Entendemos que cada etapa de madurez requiere una solución específica. Por eso no ofrecemos servicios aislados, sino una única ruta de transformación diseñada para dar solidez antes de acelerar.</p>
+
+    <div class="dim-grid">
+      <div class="dim-card reveal">
+        <span class="dim-num">01</span>
+        <div class="dim-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg></div>
+        <h3>Diagnóstico y Estructura</h3>
+        <p>Entender y organizar los cimientos de tu gestión de personas.</p>
+        <div class="dim-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="dim-card reveal">
+        <span class="dim-num">02</span>
+        <div class="dim-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 17V9m6 8V5m6 12v-6" stroke-linecap="round"/></svg></div>
+        <h3>Procesos y Tech</h3>
+        <p>Agilizar la operación con diseño y herramientas digitales.</p>
+        <div class="dim-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="dim-card reveal">
+        <span class="dim-num">03</span>
+        <div class="dim-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke-linecap="round"/></svg></div>
+        <h3>Talento y Performance</h3>
+        <p>Atraer a los mejores y potenciar sus resultados.</p>
+        <div class="dim-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="dim-card reveal">
+        <span class="dim-num">04</span>
+        <div class="dim-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l3 6 6 1-4.5 4.5L17.5 21 12 17.8 6.5 21l1-6.5L3 10l6-1z" stroke-linejoin="round"/></svg></div>
+        <h3>Acompañamiento</h3>
+        <p>Ser tu copiloto en el viaje de escalar.</p>
+      </div>
+    </div>
+
+    <div class="philosophy-cta">
+      <a href="#camino" class="pill-glow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg>
+        Un solo camino, no un catálogo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL CAMINO ============ -->
+<section class="camino" id="camino">
+  <div class="container">
+    <div class="eyebrow-row"><span class="badge badge-light"><span class="dot"></span> El Camino</span></div>
+    <div class="section-head">
+      <h2 class="reveal">Un punto de entrada, <span class="accent accent-light">dos caminos</span></h2>
+      <p class="lead reveal">Toda relación con Delenio People arranca en el mismo lugar y se ramifica según lo que tu organización necesite resolver primero.</p>
+    </div>
+
+    <!-- Signature funnel diagram -->
+    <div class="funnel-wrap" id="funnelWrap">
+      <svg class="funnel-svg" viewBox="0 0 920 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: People Insight se ramifica en People Copilot y People Match">
+        <path class="funnel-path" d="M180 130 C 320 130, 340 60, 480 60 S 640 60, 760 60" stroke="url(#g1)" stroke-width="2.5" fill="none"/>
+        <path class="funnel-path" d="M180 130 C 320 130, 340 200, 480 200 S 640 200, 760 200" stroke="url(#g2)" stroke-width="2.5" fill="none"/>
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#2B3FE0"/><stop offset="1" stop-color="#22B24C"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#2B3FE0"/><stop offset="1" stop-color="#22B24C"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Insight node -->
+        <rect x="30" y="95" width="150" height="70" rx="16" fill="#fff" stroke="#E7E9EF"/>
+        <circle cx="62" cy="130" r="14" fill="#EEF0FF"/>
+        <text x="62" y="135" text-anchor="middle" font-size="13" fill="#2B3FE0" font-weight="700" font-family="Sora, sans-serif">1</text>
+        <text x="90" y="126" font-size="14.5" class="funnel-node-label" fill="#10141F">People</text>
+        <text x="90" y="144" font-size="14.5" class="funnel-node-label" fill="#10141F">Insight</text>
+
+        <!-- Copilot node -->
+        <rect x="760" y="25" width="150" height="70" rx="16" fill="#fff" stroke="#E7E9EF"/>
+        <circle cx="792" cy="60" r="14" fill="#E7FBF3"/>
+        <text x="792" y="65" text-anchor="middle" font-size="12" fill="#22B24C" font-weight="700" font-family="Sora, sans-serif">2A</text>
+        <text x="815" y="56" font-size="13.5" class="funnel-node-label" fill="#10141F">People</text>
+        <text x="815" y="74" font-size="13.5" class="funnel-node-label" fill="#10141F">Copilot</text>
+
+        <!-- Match node -->
+        <rect x="760" y="165" width="150" height="70" rx="16" fill="#fff" stroke="#E7E9EF"/>
+        <circle cx="792" cy="200" r="14" fill="#EEF0FF"/>
+        <text x="792" y="205" text-anchor="middle" font-size="12" fill="#2B3FE0" font-weight="700" font-family="Sora, sans-serif">2B</text>
+        <text x="815" y="196" font-size="13.5" class="funnel-node-label" fill="#10141F">People</text>
+        <text x="815" y="214" font-size="13.5" class="funnel-node-label" fill="#10141F">Match</text>
+      </svg>
+    </div>
+
+    <!-- Paso 1: Insight -->
+    <div class="step-label reveal">
+      <span class="step-num">1</span>
+      <h3>People Insight <span class="tag">— El Diagnóstico</span></h3>
+    </div>
+    <div class="row-2">
+      <div class="path-card reveal">
+        <div class="path-icon lav"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
+        <h4>Insight Express</h4>
+        <p class="sub blue">Si buscás cubrir una posición</p>
+        <p class="desc">Una charla breve, enfocada solo en el rol y el equipo — no relevamos toda la organización. Con eso ya arrancamos la búsqueda.</p>
+        <div class="meta"><span>Duración</span><b>30–45 min</b></div>
+      </div>
+      <div class="path-card reveal">
+        <div class="path-icon mint"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></div>
+        <h4>Insight Integral</h4>
+        <p class="sub green">Si estás evaluando un Copilot</p>
+        <p class="desc">El chequeo completo de 18 dimensiones de tu gestión de personas: estructura, procesos, tecnología, atracción, compensación y más.</p>
+        <div class="meta"><span>Entregable</span><b>Roadmap ejecutable</b></div>
+      </div>
+    </div>
+
+    <!-- Paso 2: Copilot / Match -->
+    <div class="step-label reveal">
+      <span class="step-num">2</span>
+      <h3>Elegís tu camino <span class="tag">— según lo que resuelve tu Insight</span></h3>
+    </div>
+    <div class="row-2" style="margin-bottom:24px;">
+      <div class="flagship reveal" id="copilot">
+        <div class="flagship-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 13a8 8 0 0116 0M4 13v3a2 2 0 002 2h1v-6H6a2 2 0 00-2 2zm16 0v3a2 2 0 01-2 2h-1v-6h1a2 2 0 012 2z"/></svg></div>
+        <h4>People Copilot</h4>
+        <p class="sub">Dirección de Talento Fraccional</p>
+        <p class="desc">Nos convertimos en tu dirección de RR.HH. — full time en el compromiso, part time en el costo. El trabajo pesado lo hacemos nosotros: vos das información y contexto, nosotros diseñamos, implementamos y ejecutamos.</p>
+        <div class="modal-list">
+          <span class="modal-chip">Mentoría y Guía</span>
+          <span class="modal-chip">Construir y Operar</span>
+          <span class="modal-chip">Modalidad Ejecutiva</span>
+        </div>
+      </div>
+      <div class="path-card reveal" id="match" style="display:flex;flex-direction:column;">
+        <div class="path-icon lav"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="9" r="3"/><path d="M15 9a3 3 0 100-6 3 3 0 000 6zM3 20c0-3 2.5-5.5 6-5.5s6 2.5 6 5.5M14 14.7c2.9.5 5 2.6 5 5.3" stroke-linecap="round"/></svg></div>
+        <h4>People Match</h4>
+        <p class="sub blue">Headhunting Estratégico</p>
+        <p class="desc">Vamos más allá del filtro de CVs: buscamos encaje técnico y cultural. Tu parte es simple — nos das el contexto del rol, nosotros armamos las ternas y hacemos las entrevistas.</p>
+        <div class="meta"><span>Alcance</span><b>Generalista y Especializada</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TU ROL ============ -->
+<section class="rol">
+  <div class="container">
+    <div class="eyebrow-row"><span class="badge badge-light"><span class="dot"></span> Cómo Trabajamos</span></div>
+    <div class="section-head">
+      <h2 class="reveal">El trabajo pesado lo hacemos <span class="accent accent-light">nosotros</span></h2>
+    </div>
+    <p class="rol-note reveal">People Copilot está diseñado para que el peso del trabajo lo lleve Delenio, no vos. Tu parte se limita a darnos información, contexto y validación en los momentos clave.</p>
+
+    <div class="rol-table reveal">
+      <div class="rol-row head">
+        <div>Fase</div><div>Vos nos das</div><div>Nosotros hacemos</div>
+      </div>
+      <div class="rol-row">
+        <div>Kickoff</div>
+        <div>Acceso a información básica y una reunión de apertura.</div>
+        <div>Armamos el plan de trabajo y las cadencias.</div>
+      </div>
+      <div class="rol-row">
+        <div>Estructura</div>
+        <div>Nos contás cómo opera hoy tu equipo y nos facilitás el contacto con los líderes.</div>
+        <div>Relevamos, entrevistamos, documentamos y proponemos el rediseño.</div>
+      </div>
+      <div class="rol-row">
+        <div>Tecnología</div>
+        <div>Nos contás qué herramientas usás hoy (aunque sea informalmente).</div>
+        <div>Evaluamos alternativas, implementamos y capacitamos a tu equipo.</div>
+      </div>
+      <div class="rol-row">
+        <div>Talento y Performance</div>
+        <div>Validás las decisiones clave (compensación, criterios de evaluación).</div>
+        <div>Diseñamos y ejecutamos la búsqueda o el ciclo de desempeño de punta a punta.</div>
+      </div>
+      <div class="rol-row">
+        <div>Acompañamiento</div>
+        <div>Participás de la sesión de sparring acordada.</div>
+        <div>Preparamos la agenda, hacemos seguimiento y armamos los reportes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POR QUÉ ============ -->
+<section class="why">
+  <div class="container">
+    <div class="eyebrow-row"><span class="badge badge-light"><span class="dot"></span> Por Qué Delenio People</span></div>
+    <div class="section-head">
+      <h2 class="reveal">Tu socio de crecimiento, <span class="accent accent-light">no un proveedor</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2l3 6 6 1-4.5 4.5L17.5 20 12 16.8 6.5 20l1-6.5L3 9l6-1z" stroke-linejoin="round"/></svg></div>
+        <div><h4>Seniority real</h4><p>Directores de RR.HH. con trayectoria en operación de negocio, no consultores junior rotando cuentas.</p></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><h4>Metodología basada en diagnóstico</h4><p>Entrás por un diagnóstico, no por una venta. El plan se arma sobre datos de tu organización.</p></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4v16h16M8 15l3-3 3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><h4>Sin estructura fija</h4><p>Fraccional por diseño: pagás la seniority que necesitás, cuando la necesitás.</p></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
+        <div><h4>Tecnología aplicada</h4><p>Procesos y decisiones apoyados en agentes de IA aplicados a RR.HH., no en planillas sueltas.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<div class="quote-wrap">
+  <div class="container">
+    <div class="quote-box reveal">
+      <p>"Tu negocio escala cuando tu gente escala primero."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final" id="contacto">
+  <div class="container">
+    <h2 class="reveal">Próximo paso</h2>
+    <p class="reveal">Si necesitás cubrir una posición, arrancamos con una charla breve — el Insight Express. Si estás evaluando profesionalizar la gestión de personas de fondo, empezamos con el Insight Integral.</p>
+    <div class="ctas">
+      <a href="https://calendar.app.google/bmg5q2Ne7GtyuU1D7" target="_blank" rel="noopener" class="btn btn-grad">Agendá tu diagnóstico</a>
+      <a href="https://wa.me/5491140566256" target="_blank" rel="noopener" class="btn btn-outline-dark">Escribinos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <svg class="mark" viewBox="0 0 579 176" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:130px;">
+            <path d="M10.4828 165.528V69.7309C10.4828 67.473 11.343 65.484 13.0632 63.7637C14.7835 62.0434 16.8263 61.1833 19.1917 61.1833H50.3176C66.015 60.9683 79.132 66.2903 89.6686 77.1495C100.313 87.9011 105.527 101.394 105.312 117.629C105.527 133.864 100.313 147.411 89.6686 158.271C79.132 169.022 66.015 174.29 50.3176 174.075H19.1917C16.8263 174.075 14.7835 173.215 13.0632 171.495C11.343 169.775 10.4828 167.786 10.4828 165.528ZM27.5779 77.9558V157.303H48.5436C60.3704 157.303 69.9394 153.647 77.2505 146.336C84.5616 138.81 88.2171 129.241 88.2171 117.629C88.2171 105.91 84.5616 96.3949 77.2505 89.0838C70.0469 81.6652 60.4779 77.9558 48.5436 77.9558H27.5779ZM114.642 133.273C114.642 124.134 116.9 116.017 121.416 108.921C126.039 101.824 132.167 96.7712 139.801 93.7607C144.962 91.6104 150.338 90.5353 155.928 90.5353H156.412C164.046 90.6428 170.766 92.4168 176.572 95.8573C182.377 99.2978 186.947 103.867 190.28 109.566C192.43 113.114 193.882 116.877 194.634 120.855C195.172 123.543 195.441 125.854 195.441 127.79C195.441 128.972 195.333 130.639 195.118 132.789C194.258 137.842 191.409 140.369 186.571 140.369H131.737C133.135 146.282 136.199 151.013 140.93 154.561C145.661 158.002 151.52 159.722 158.509 159.722C165.82 159.722 172.271 157.464 177.862 152.948C179.475 151.658 181.302 150.906 183.345 150.691H183.829C185.549 150.691 187.001 151.121 188.183 151.981C190.226 153.809 191.409 155.851 191.731 158.109C192.054 160.26 190.979 162.625 188.506 165.205C180.55 172.194 170.497 175.688 158.348 175.688C145.123 175.688 134.533 171.71 126.577 163.754C118.62 155.583 114.642 145.422 114.642 133.273ZM131.737 125.693H178.668C178.131 119.887 175.819 115.264 171.733 111.823C167.755 108.275 162.648 106.501 156.412 106.501C150.284 106.501 144.962 108.275 140.446 111.823C136.038 115.264 133.135 119.887 131.737 125.693ZM211.918 166.496V60.6995C211.918 58.3341 212.725 56.3451 214.338 54.7323C216.058 53.0121 218.101 52.1519 220.466 52.1519C222.831 52.1519 224.82 53.0121 226.433 54.7323C228.153 56.3451 229.014 58.3341 229.014 60.6995V166.496C229.014 168.861 228.153 170.904 226.433 172.624C224.82 174.237 222.831 175.043 220.466 175.043C218.101 175.043 216.058 174.237 214.338 172.624C212.725 170.904 211.918 168.861 211.918 166.496ZM245.835 133.273C245.835 124.134 248.093 116.017 252.609 108.921C257.232 101.824 263.36 96.7712 270.994 93.7607C276.155 91.6104 281.531 90.5353 287.121 90.5353H287.605C295.239 90.6428 301.959 92.4168 307.765 95.8573C313.57 99.2978 318.14 103.867 321.473 109.566C323.623 113.114 325.075 116.877 325.827 120.855C326.365 123.543 326.634 125.854 326.634 127.79C326.634 128.972 326.526 130.639 326.311 132.789C325.451 137.842 322.602 140.369 317.764 140.369H262.93C264.328 146.282 267.392 151.013 272.123 154.561C276.854 158.002 282.713 159.722 289.702 159.722C297.013 159.722 303.464 157.464 309.055 152.948C310.668 151.658 312.495 150.906 314.538 150.691H315.022C316.742 150.691 318.194 151.121 319.376 151.981C321.419 153.809 322.602 155.851 322.924 158.109C323.247 160.26 322.172 162.625 319.699 165.205C311.743 172.194 301.69 175.688 289.541 175.688C276.316 175.688 265.726 171.71 257.77 163.754C249.813 155.583 245.835 145.422 245.835 133.273ZM262.93 125.693H309.861C309.324 119.887 307.012 115.264 302.926 111.823C298.948 108.275 293.841 106.501 287.605 106.501C281.477 106.501 276.155 108.275 271.639 111.823C267.231 115.264 264.328 119.887 262.93 125.693ZM340.269 166.496V99.7279C340.269 97.3625 341.075 95.3735 342.688 93.7607C344.301 92.0405 346.29 91.1804 348.655 91.1804C351.128 91.1804 353.171 92.0405 354.784 93.7607C356.504 95.3735 357.364 97.3625 357.364 99.7279V102.308C362.955 94.4596 371.395 90.5353 382.684 90.5353C391.931 90.5353 399.242 93.7607 404.618 100.212C410.101 106.555 412.843 115.156 412.843 126.016V166.334C412.843 168.915 412.036 171.011 410.423 172.624C408.811 174.237 406.768 175.043 404.295 175.043C401.822 175.043 399.779 174.237 398.167 172.624C396.554 171.011 395.747 168.915 395.747 166.334V127.628C395.747 121.392 394.296 116.554 391.393 113.114C388.598 109.566 384.566 107.792 379.297 107.792C364.675 107.792 357.364 117.361 357.364 136.498V166.496C357.364 168.968 356.504 171.011 354.784 172.624C353.171 174.237 351.128 175.043 348.655 175.043C346.29 175.043 344.301 174.237 342.688 172.624C341.075 171.011 340.269 168.968 340.269 166.496ZM430.435 72.4725C428.177 70.1072 427.049 67.2042 427.049 63.7637C427.049 60.2157 428.177 57.3127 430.435 55.0549C432.801 52.6895 435.757 51.5068 439.305 51.5068C442.853 51.5068 445.81 52.6895 448.175 55.0549C450.541 57.3127 451.724 60.2157 451.724 63.7637C451.724 67.2042 450.541 70.1072 448.175 72.4725C445.81 74.7304 442.853 75.8593 439.305 75.8593C435.757 75.8593 432.801 74.7304 430.435 72.4725ZM430.758 166.496V99.8892C430.758 97.5238 431.564 95.481 433.177 93.7607C434.897 92.0405 436.94 91.1804 439.305 91.1804C441.671 91.1804 443.66 92.0405 445.273 93.7607C446.993 95.481 447.853 97.5238 447.853 99.8892V166.496C447.853 168.861 446.993 170.904 445.273 172.624C443.66 174.237 441.671 175.043 439.305 175.043C436.94 175.043 434.897 174.237 433.177 172.624C431.564 170.904 430.758 168.861 430.758 166.496ZM468.031 154.884C464.376 148.325 462.548 141.068 462.548 133.112C462.548 125.156 464.376 117.952 468.031 111.501C471.794 104.942 476.955 99.8354 483.513 96.1799C490.179 92.4168 497.598 90.5353 505.769 90.5353C513.833 90.5353 521.198 92.4168 527.864 96.1799C534.53 99.8354 539.745 104.942 543.508 111.501C547.271 118.059 549.152 125.263 549.152 133.112C549.152 141.068 547.271 148.325 543.508 154.884C539.745 161.335 534.53 166.442 527.864 170.205C521.305 173.86 513.941 175.688 505.769 175.688C497.706 175.688 490.341 173.86 483.675 170.205C477.116 166.442 471.902 161.335 468.031 154.884ZM487.223 114.888C482.277 119.726 479.804 125.801 479.804 133.112C479.804 140.423 482.277 146.551 487.223 151.497C492.276 156.335 498.458 158.754 505.769 158.754C513.08 158.754 519.263 156.335 524.316 151.497C529.369 146.444 531.896 140.315 531.896 133.112C531.896 125.801 529.369 119.726 524.316 114.888C519.37 109.942 513.188 107.469 505.769 107.469C498.351 107.469 492.169 109.942 487.223 114.888Z" fill="#fff"/>
+            <path d="M320.637 33.0159L288.621 8.85714L257.066 32.5554" stroke="url(#footerlogo1)" stroke-width="17.4877" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M320.637 70.0159L288.621 45.8571L257.066 69.5554" stroke="url(#footerlogo2)" stroke-width="17.4877" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M562.898 108.062V95.3435H567.195C568.189 95.3435 569.004 95.5132 569.642 95.8527C570.279 96.188 570.751 96.6497 571.058 97.2375C571.364 97.8254 571.517 98.4941 571.517 99.2434C571.517 99.9928 571.364 100.657 571.058 101.237C570.751 101.816 570.281 102.272 569.648 102.603C569.014 102.93 568.205 103.094 567.22 103.094H563.742V101.703H567.17C567.849 101.703 568.396 101.603 568.81 101.405C569.228 101.206 569.53 100.924 569.716 100.56C569.907 100.191 570.002 99.7526 570.002 99.2434C570.002 98.7342 569.907 98.2891 569.716 97.9082C569.526 97.5273 569.221 97.2334 568.803 97.0264C568.385 96.8153 567.832 96.7097 567.145 96.7097H564.438V108.062H562.898ZM568.884 102.348L572.014 108.062H570.225L567.145 102.348H568.884ZM574.953 108.161C574.647 108.161 574.384 108.051 574.164 107.832C573.945 107.613 573.835 107.35 573.835 107.043C573.835 106.737 573.945 106.474 574.164 106.255C574.384 106.035 574.647 105.925 574.953 105.925C575.259 105.925 575.522 106.035 575.742 106.255C575.961 106.474 576.071 106.737 576.071 107.043C576.071 107.246 576.019 107.432 575.915 107.602C575.816 107.772 575.682 107.909 575.512 108.012C575.346 108.111 575.16 108.161 574.953 108.161Z" fill="#fff"/>
+            <defs>
+              <linearGradient id="footerlogo1" x1="308" y1="33" x2="262" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#002EE5"/><stop offset="1" stop-color="#65E3C3"/></linearGradient>
+              <linearGradient id="footerlogo2" x1="308" y1="70" x2="262" y2="75" gradientUnits="userSpaceOnUse"><stop stop-color="#002EE5"/><stop offset="1" stop-color="#65E3C3"/></linearGradient>
+            </defs>
+          </svg>
+          <span class="people-tag people-tag-dark">People</span>
+        </div>
+        <p class="tagline">Transformamos la gestión de personas en una ventaja competitiva para escalar tu organización.</p>
+      </div>
+      <div>
+        <h5>Nuestros Servicios</h5>
+        <ul>
+          <li><a href="#camino">People Insight</a></li>
+          <li><a href="#copilot">People Copilot</a></li>
+          <li><a href="#match">People Match</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contáctanos</h5>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 6l9 7 9-7M3 6h18v12H3z"/></svg> ezequiell@delenio.net</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 13v4"/></svg> LinkedIn</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.5 7-11a7 7 0 10-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> LATAM y España</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Delenio People. Todos los derechos reservados.</span>
+      <span>Tu visión escala cuando tu equipo evoluciona.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function closeDrawer(){document.getElementById('drawer').classList.remove('open');}
+
+  // Scroll reveal
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced && 'IntersectionObserver' in window){
+    var els = document.querySelectorAll('.reveal:not(.in-view)');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+
+    var funnel = document.getElementById('funnelWrap');
+    var fio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ funnel.classList.add('in-view'); fio.unobserve(funnel); }
+      });
+    }, {threshold:0.3});
+    fio.observe(funnel);
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in-view');});
+    document.getElementById('funnelWrap').classList.add('in-view');
+  }
+</script>
+</body>
+</html>
