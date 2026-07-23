@@ -360,6 +360,72 @@
   .why-card h4{font-size:16.5px;font-weight:700;margin-bottom:6px;}
   .why-card p{font-size:14.5px;color:var(--gray);line-height:1.6;}
 
+  /* ---------- Microservicios ---------- */
+  .micro{padding:110px 0;background:var(--bg-soft);}
+  .micro-list{display:flex;flex-direction:column;gap:20px;margin-top:56px;}
+  .micro-card{
+    display:block;
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:32px 34px;box-shadow:var(--shadow-card);
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .micro-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-2px);}
+  .micro-top{display:flex;align-items:flex-start;gap:20px;margin-bottom:22px;}
+  .micro-top .path-icon{flex-shrink:0;}
+  .micro-logo{
+    width:58px;height:58px;border-radius:16px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  .micro-logo.bg-soft{background:var(--bg-soft);border:1px solid var(--border);}
+  .micro-logo.bg-navy{background:var(--navy);}
+  .micro-logo .ia-mark{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:var(--ink);}
+  .micro-logo .ia-mark b{background:linear-gradient(95deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .micro-logo .n-mark{font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#fff;}
+  .micro-logo .d-mark{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--ink);letter-spacing:-0.02em;}
+  .micro-logo img{width:68%;height:auto;}
+  .micro-name{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:var(--ink);display:block;margin-bottom:6px;}
+  .micro-name b{font-weight:800;background:linear-gradient(95deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .micro-tag{font-size:14.5px;color:var(--gray);line-height:1.6;max-width:640px;}
+  .micro-features{
+    display:flex;flex-wrap:wrap;gap:10px 28px;
+    padding:20px 0;margin-bottom:18px;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  }
+  .micro-feature{
+    display:flex;align-items:center;gap:9px;
+    font-size:13.5px;color:var(--ink);font-weight:500;
+    flex:1 1 calc(50% - 28px);min-width:230px;
+  }
+  .micro-feature svg{width:15px;height:15px;color:var(--green);flex-shrink:0;}
+  .micro-link{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;font-weight:700;color:var(--blue);
+  }
+  .micro-link svg{width:14px;height:14px;transition:transform .15s ease;}
+  .micro-card:hover .micro-link svg{transform:translateX(3px);}
+
+  /* ---------- Pricing table ---------- */
+  .pricing-block{margin-top:72px;}
+  .pricing-title{font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:var(--ink);margin-bottom:10px;}
+  .pricing-lead{font-size:14.5px;color:var(--gray);margin-bottom:28px;max-width:680px;line-height:1.6;}
+  .pricing-table-wrap{
+    border:1px solid var(--border);border-radius:var(--radius-lg);
+    overflow:hidden;box-shadow:var(--shadow-card);
+  }
+  table.pricing-table{width:100%;border-collapse:collapse;background:#fff;}
+  table.pricing-table thead tr{background:var(--navy);}
+  table.pricing-table th{
+    color:#fff;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;
+    text-align:left;padding:16px 22px;text-transform:uppercase;letter-spacing:.04em;
+  }
+  table.pricing-table td{
+    padding:16px 22px;font-size:14.5px;color:var(--ink);
+    border-top:1px solid var(--border);
+  }
+  table.pricing-table td.pt-name{font-weight:700;font-family:'Sora',sans-serif;}
+  table.pricing-table tbody tr:nth-child(even){background:var(--bg-soft);}
+  .pricing-note{font-size:13px;color:var(--gray);margin-top:18px;line-height:1.6;}
+
   /* ---------- Quote ---------- */
   .quote-wrap{padding:0 0 110px;background:#fff;}
   .quote-box{
@@ -695,6 +761,131 @@
         <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
         <div><h4>Tecnología aplicada</h4><p>Procesos y decisiones apoyados en agentes de IA aplicados a RR.HH., no en planillas sueltas.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MICROSERVICIOS ============ -->
+<section class="micro" id="microservicios">
+  <div class="container">
+    <div class="eyebrow-row"><span class="badge badge-light"><span class="dot"></span> Suite de Microservicios</span></div>
+    <div class="section-head">
+      <h2 class="reveal">Herramientas que <span class="accent accent-light">potencian</span> tu gestión de personas</h2>
+      <p class="lead reveal">Además del acompañamiento estratégico, desarrollamos software propio para que la gestión de personas de tu empresa corra sola, todos los meses.</p>
+    </div>
+
+    <div class="micro-list">
+      <a class="micro-card reveal" href="https://climia.talenio.tech" target="_blank" rel="noopener">
+        <div class="micro-top">
+          <div class="micro-logo bg-soft"><span class="ia-mark"><b>IA</b></span></div>
+          <div>
+            <span class="micro-name">Clim<b>IA</b></span>
+            <p class="micro-tag">El radar de clima de tu organización: mide el pulso de tu equipo todos los meses y lo convierte en planes de acción con IA.</p>
+          </div>
+        </div>
+        <div class="micro-features">
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Pulso mensual, no encuesta anual</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>eNPS, satisfacción y participación en vivo</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Comentarios abiertos analizados con IA</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Plan de acción editable, con responsables</div>
+        </div>
+        <span class="micro-link">Visitar ClimIA <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="micro-card reveal" href="https://nomia.talenio.tech" target="_blank" rel="noopener">
+        <div class="micro-top">
+          <div class="micro-logo bg-navy"><span class="n-mark">N</span></div>
+          <div>
+            <span class="micro-name">Nomia</span>
+            <p class="micro-tag">Presupuestá el costo de nómina de tu empresa, simulá escenarios y compará contra el costo real — sin planillas frágiles.</p>
+          </div>
+        </div>
+        <div class="micro-features">
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Dotación completa, carga individual o por Excel</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Cargas sociales, bonos y costeos configurables</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Escenarios comparables antes de decidir</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Real vs. Presupuesto con desvíos automáticos</div>
+        </div>
+        <span class="micro-link">Visitar Nomia <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="micro-card reveal" href="https://promotia.talenio.tech" target="_blank" rel="noopener">
+        <div class="micro-top">
+          <div class="micro-logo bg-soft"><span class="ia-mark"><b>IA</b></span></div>
+          <div>
+            <span class="micro-name">Promot<b>IA</b></span>
+            <p class="micro-tag">El NPS de tus clientes B2B, mes a mes: detectá promotores y detractores y armá el plan para subir el score con IA.</p>
+          </div>
+        </div>
+        <div class="micro-features">
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Una sola pregunta, la metodología NPS de siempre</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Dashboard con evolución y corte por segmento</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Voz del cliente agrupada en impulsores y dolores por IA</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Portal propio para cada cliente</div>
+        </div>
+        <span class="micro-link">Visitar PromotIA <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="micro-card reveal" href="https://bandas.talenio.tech" target="_blank" rel="noopener">
+        <div class="micro-top">
+          <div class="micro-logo bg-soft">
+            <svg viewBox="245 0 90 82" width="34" height="31" xmlns="http://www.w3.org/2000/svg">
+              <path d="M320.637 33.0159L288.621 8.85714L257.066 32.5554" stroke="url(#bandaslogo1)" stroke-width="17.4877" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M320.637 70.0159L288.621 45.8571L257.066 69.5554" stroke="url(#bandaslogo2)" stroke-width="17.4877" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="bandaslogo1" x1="308" y1="33" x2="262" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#002EE5"/><stop offset="1" stop-color="#65E3C3"/></linearGradient>
+                <linearGradient id="bandaslogo2" x1="308" y1="70" x2="262" y2="75" gradientUnits="userSpaceOnUse"><stop stop-color="#002EE5"/><stop offset="1" stop-color="#65E3C3"/></linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div>
+            <span class="micro-name">Bandas</span>
+            <p class="micro-tag">Consultá gratis las bandas salariales de Argentina 2026, cruzando los principales informes del mercado por rol.</p>
+          </div>
+        </div>
+        <div class="micro-features">
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Cruza Michael Page, Randstad, PwC y MyDNA</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Panorama de mercado 2026: ajustes, bonos, rotación</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Filtros por área e industria</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>100% gratis, sin registro</div>
+        </div>
+        <span class="micro-link">Visitar Bandas <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="micro-card reveal" href="https://dojo.talenio.tech" target="_blank" rel="noopener">
+        <div class="micro-top">
+          <div class="micro-logo bg-soft"><span class="d-mark">Dojo</span></div>
+          <div>
+            <span class="micro-name">Dojo</span>
+            <p class="micro-tag">Simulador de ventas con IA: entrená a tu equipo comercial con escenarios armados con tus propios productos y objeciones reales.</p>
+          </div>
+        </div>
+        <div class="micro-features">
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Escenarios armados con tus productos y objeciones reales</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Feedback objetivo en 5 pilares de venta</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Práctica por texto o por voz</div>
+          <div class="micro-feature"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Progreso de todo el equipo para el gerente</div>
+        </div>
+        <span class="micro-link">Visitar Dojo <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+
+    <div class="pricing-block reveal">
+      <h3 class="pricing-title">Planes y Precios</h3>
+      <p class="pricing-lead">Un esquema simple, igual en toda la suite: elegís Start o IA+ según cuánta inteligencia artificial necesitás activa.</p>
+      <div class="pricing-table-wrap">
+        <table class="pricing-table">
+          <thead>
+            <tr><th>App</th><th>Start</th><th>IA+</th><th>Incluye hasta</th><th>Más allá</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="pt-name">ClimIA</td><td>US$39/mes</td><td>US$59/mes</td><td>75 empleados</td><td>A medida</td></tr>
+            <tr><td class="pt-name">Nomia</td><td>US$59/mes</td><td>US$89/mes</td><td>75 empleados</td><td>A medida</td></tr>
+            <tr><td class="pt-name">PromotIA</td><td>US$39/mes</td><td>US$59/mes</td><td>100 clientes B2B</td><td>A medida</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pricing-note">Bandas Salariales es 100% gratuita, sin registro. Dojo funciona a demo — coordinamos el plan según el tamaño de tu equipo comercial.</p>
     </div>
   </div>
 </section>
